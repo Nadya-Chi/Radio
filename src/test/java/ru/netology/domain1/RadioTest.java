@@ -46,6 +46,15 @@ public class RadioTest {
     }
 
     @Test
+    public void nextStation1() {
+        Radio radio = new Radio();
+        int station = 0;
+        radio.setStation(station);
+        radio.nextStation();
+        assertEquals(1,radio.getStation());
+    }
+
+    @Test
     public void prevStation() {
         Radio radio = new Radio();
         int station = 5;
@@ -61,6 +70,15 @@ public class RadioTest {
         radio.setStation(station);
         radio.prevStation();
         assertEquals(9,radio.getStation());
+    }
+
+    @Test
+    public void prevStation8() {
+        Radio radio = new Radio();
+        int station = 9;
+        radio.setStation(station);
+        radio.prevStation();
+        assertEquals(8,radio.getStation());
     }
 
     @Test

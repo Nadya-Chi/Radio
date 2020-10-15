@@ -18,20 +18,20 @@ public class Radio {
     }
 
     public void nextStation() {
+        if (station < 9) {
+            this.station++;
+        }
         if (station == 9) {
             this.station = 0;
-        }
-        if (station > 0) {
-            this.station++;
         }
     }
 
     public void prevStation() {
+        if (station > 0) {
+            this.station--;
+        }
         if (station == 0) {
             this.station = 9;
-        }
-        if (station < 9) {
-            this.station--;
         }
     }
 

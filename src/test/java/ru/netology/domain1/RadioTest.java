@@ -16,14 +16,14 @@ public class RadioTest {
     @Test
     public void stationFalse() {
         Radio radio = new Radio();
-        radio.setStation(11);
-        assertEquals(0, radio.getStation());
+        radio.setStation(9);
+        assertEquals(9, radio.getStation());
     }
 
     @Test
     public void stationFalse2() {
         Radio radio = new Radio();
-        radio.setStation(-5);
+        radio.setStation(0);
         assertEquals(0, radio.getStation());
     }
 
@@ -55,6 +55,15 @@ public class RadioTest {
     }
 
     @Test
+    public void nextStation9() {
+        Radio radio = new Radio();
+        int station = 8;
+        radio.setStation(station);
+        radio.nextStation();
+        assertEquals(9,radio.getStation());
+    }
+
+    @Test
     public void prevStation() {
         Radio radio = new Radio();
         int station = 5;
@@ -79,6 +88,15 @@ public class RadioTest {
         radio.setStation(station);
         radio.prevStation();
         assertEquals(8,radio.getStation());
+    }
+
+    @Test
+    public void prevStation0() {
+        Radio radio = new Radio();
+        int station = 1;
+        radio.setStation(station);
+        radio.prevStation();
+        assertEquals(0,radio.getStation());
     }
 
     @Test

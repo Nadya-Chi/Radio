@@ -1,26 +1,38 @@
 package ru.netology.domain1;
 
 public class Radio {
-    private int station=0;
-    private int volume=0;
+    private int quantityStations = 10;
+    private int station = 0;
+    private int volume = 0;
+
+    public int getQuantityStations() {
+        return this.quantityStations;
+    }
+    public void setQuantityStations(int quantityStations) {
+        this.quantityStations = quantityStations;
+    }
+
+    public Radio(int quantityStations) {
+        this.quantityStations = quantityStations;
+    }
 
     public int getStation() {
         return this.station;
     }
     public void setStation(int station) {
-        if (station >= 10) {
+        if (station >= this.quantityStations+1) {
             station = 0;
         }
         if (station <= -1) {
-            station = 9;
+            station = this.quantityStations;
         }
         this.station = station;
     }
 
     public void nextStation() {
-        if (this.station < 9) {
+        if (this.station < this.quantityStations) {
             this.station++;
-        } else if (this.station == 9) {
+        } else if (this.station == this.quantityStations) {
             this.station = 0;
         }
     }
@@ -29,12 +41,12 @@ public class Radio {
         if (this.station > 0) {
             this.station--;
         } else if (this.station == 0) {
-            this.station = 9;
+            this.station = this.quantityStations;
         }
     }
 
     public void choiceStation(int number) {
-        if (number > 9) {
+        if (number > this.quantityStations) {
             return;
         }
         if (number < 0) {
@@ -51,10 +63,10 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (this.volume >= 10) {
-            this.volume = 10;
+        if (this.volume >= 100) {
+            this.volume = 100;
         }
-        if (this.volume < 10) {
+        if (this.volume < 100) {
             this.volume++;
         }
     }
